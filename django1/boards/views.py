@@ -10,6 +10,4 @@ def home(request):
     for board in boards:
         boards_names.append(board.name)
 
-    response_html = '<br>'.join(boards_names)
-
-    return HttpResponse(response_html)
+    return render(request, 'home.html', {'boards': boards})
