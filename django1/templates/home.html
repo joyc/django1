@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Boards</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
-    <h1>Boards</h1>
-    <table border="1">
-        <thread>
+<div class="container">
+    <ol class="breadcrumb my-4">
+        <li class="breadcrumd-item active">Boards</li>
+    </ol>
+    <table class="table">
+        <thread class="thread-inverse">
             <tr>
                 <th>Board</th>
                 <th>Posts</th>
@@ -16,18 +20,19 @@
             </tr>
         </thread>
         <tbody>
-            {% for board in boards %}
-                <tr>
-                    <td>
-                        {{ board.name }}<br>
-                        <small style="color: #888">{{ board.description }}</small>
-                    </td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td></td>
-                </tr>
-            {% endfor %}
+        {% for board in boards %}
+        <tr>
+            <td>
+                {{ board.name }}<br>
+                <small style="color: #888">{{ board.description }}</small>
+            </td>
+            <td class="align-middle">0</td>
+            <td class="align-middle">0</td>
+            <td></td>
+        </tr>
+        {% endfor %}
         </tbody>
     </table>
+</div>
 </body>
 </html>
